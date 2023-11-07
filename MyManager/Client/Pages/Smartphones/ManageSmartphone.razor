@@ -1,0 +1,106 @@
+﻿@page "/managesmartphone"
+@layout CustMainLayout
+@inherits ManageSmartphoneBase
+    <div>
+        <div class="container">
+
+            <h1>Available Smartphones</h1>
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <input placeholder="Search" @bind="value" @bind:event="oninput" @onkeyup="@onChange" />
+                <NavLink class="nav-link" href="addsmartphone">
+                    <button type="button" class="smartphonebtn"><i class="fa fa-plus"></i>Add Phone</button>
+                </NavLink>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Ram</th>
+                            <th scope="col">Storage</th>
+                            <th scope="col">Cpu</th>
+                            <th scope="col">Display</th>
+                            <th scope="col">Quantity</th>
+                            <th class="order_btns" scope="col"><div>Price</div><div><i @onclick="priceascending" class="fas fa-sort-up"></i><i @onclick="pricedescending" class="fas fa-sort-down"></i></div></th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (getSmartphones.Smartphones.Any() && !searchedphones.Any())
+                        {
+                            foreach (var smartphone in getSmartphones.Smartphones)
+                            {
+                                <tr>
+                                    <td>@smartphone.Id</td>
+                                    <td>@smartphone.Name</td>
+                                    <td>@smartphone.Color</td>
+                                    <td>@smartphone.Ram</td>
+                                    <td>@smartphone.Storage</td>
+                                    <td>@smartphone.Cpu</td>
+                                    <td>@smartphone.Display</td>
+                                    <td>@smartphone.Quantity</td>
+                                    <td>@smartphone.Price </td>
+
+
+                                    <td class="d-flex">
+                                        <NavLink class="nav-link" href="@($"addsmartphone/{smartphone.Id}")">
+                                            <i class="fas fa-edit"></i>
+                                        </NavLink>
+                                        <NavLink class="nav-link">
+                                            <i @onclick="@(e =>{setSmartphoneId(smartphone.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletesmartphonemodel"></i>
+                                        </NavLink>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else if (searchedphones.Any())
+                        {
+                            foreach (var smartphone in searchedphones)
+                            {
+                                <tr>
+                                    <td>@smartphone.Id</td>
+                                    <td>@smartphone.Name</td>
+                                    <td>@smartphone.Color</td>
+                                    <td>@smartphone.Ram</td>
+                                    <td>@smartphone.Storage</td>
+                                    <td>@smartphone.Cpu</td>
+                                    <td>@smartphone.Display</td>
+                                    <td>@smartphone.Quantity</td>
+                                    <td>@smartphone.Price </td>
+
+
+                                    <td class="d-flex">
+                                        <NavLink class="nav-link" href="@($"addsmartphone/{smartphone.Id}")">
+                                            <i class="fas fa-edit"></i>
+                                        </NavLink>
+                                        <NavLink class="nav-link">
+                                            <i @onclick="@(e =>{setSmartphoneId(smartphone.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletesmartphonemodel"></i>
+                                        </NavLink>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @if (getSmartphones.Message.Any())
+            {
+                <h1>@getSmartphones.Message.FirstOrDefault()</h1>
+            }
+            else if (!getSmartphones.Message.Any() && !getSmartphones.Smartphones.Any())
+            {
+                <div class="d-flex justify-content-center">
+                    <span class="spinner-border"></span>
+                    <span class="ml-3">Loading...</span>
+                </div>
+            }
+
+        </div>
+    </div>
+    <DeleteSmartphoneModel onDelete="smartphoneDeleted" smartphoneid="@smartphoneid" />

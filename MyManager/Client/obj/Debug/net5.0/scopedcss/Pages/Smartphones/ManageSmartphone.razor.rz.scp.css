@@ -1,0 +1,39 @@
+.fa-edit[b-tse3gjl7bi] {
+    color: #FF5151;
+    margin-right: .5rem;
+}
+
+.fa-trash-alt[b-tse3gjl7bi] {
+    color: red;
+    margin-left: .5rem;
+}
+
+.fa-plus[b-tse3gjl7bi] {
+    margin-right: .3rem;
+}
+
+th[b-tse3gjl7bi] {
+    font-size: 1.4rem;
+}
+
+td[b-tse3gjl7bi] {
+    font-size: 1.3rem
+}
+.order_btns[b-tse3gjl7bi]{
+    display:inline-block;
+}
+input[b-tse3gjl7bi] {
+   height:3rem;
+   outline:none;
+
+}
+
+.smartphonebtn[b-tse3gjl7bi] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 12rem;
+    color: white;
+    font-size: 1.6rem;
+}

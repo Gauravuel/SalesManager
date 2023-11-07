@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+<div class="leftmost_div">
+    <div>
+        <i class="fas fa-bars fa-3x menu_bar" @onclick="toggle"></i>
+    </div>
+    <div class="banner_div">
+        <div class="banner">My Manager</div>
+    </div>
+
+</div>
+<div class="username">
+    <AuthorizeView>
+        <Authorized>
+            <div>
+                Hi!, @context.User.Identity.Name
+
+            </div>   
+            @*<div class="dropdown">
+               
+                <i class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">          
+                </i>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Change Password</a>                
+                </div>
+            </div>*@
+            <div class="dropdown ml-4">
+                <i id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="fas fa-caret-down"></i>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="changepassword">Change Password</a></li>                
+                </ul>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</div>
+
+
+@code{
+    [Parameter]
+    public EventCallback<string> OnToggleClicked { get; set; }
+
+
+    [Parameter]
+    public bool open { get; set; } = false;
+
+    public string SideNavCssClass => open ? "opensidenav" : "closesidenav";
+
+
+    public async void toggle()
+    {
+        open = !open;
+        await OnToggleClicked.InvokeAsync(SideNavCssClass);
+
+    }
+
+}
+
+

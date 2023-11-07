@@ -1,0 +1,72 @@
+﻿@page "/managecustomer"
+@layout CustMainLayout
+@inherits ManageCustomerBase
+
+<div class="container">
+
+    <h1>Our Customers</h1>
+    <div class="d-flex justify-content-end">
+        <NavLink class="nav-link" href="addcustomer">
+            <button type="button" class="customerbtn"><i class="fa fa-plus"></i>Add Customer</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getCustomer.Customers.Any())
+                {
+                    foreach (var customer in getCustomer.Customers)
+                    {
+                        <tr>
+                            <td>@customer.Id</td>
+                            <td>@customer.Name</td>
+                            <td>@customer.Address</td>
+                            <td>@customer.Phone</td>
+
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addpurchase/{customer.Id}")">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </NavLink>
+                                <NavLink class="nav-link" href="@($"addcustomer/{customer.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e =>{setCustomerId(customer.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletecustomermodel"></i>
+                                </NavLink>
+                                <NavLink class="nav-link"href="@($"purchaselist/{customer.Id}")">
+                                    <i class="fas fa-file-invoice"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getCustomer.Message.Any())
+    {
+        <h1>@getCustomer.Message.FirstOrDefault()</h1>
+    }
+    else if (!getCustomer.Message.Any() && !getCustomer.Customers.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+
+<DeleteCustomer onDelete="customerDeleted" customerid="@customerid" />

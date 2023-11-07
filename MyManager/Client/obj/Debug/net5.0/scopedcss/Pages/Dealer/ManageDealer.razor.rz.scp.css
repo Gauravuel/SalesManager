@@ -1,0 +1,32 @@
+
+.fa-edit[b-q3ft3wypij] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-q3ft3wypij] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-q3ft3wypij] {
+    margin-right: 3px;
+}
+
+th[b-q3ft3wypij] {
+    font-size: 1.4rem;
+}
+
+td[b-q3ft3wypij] {
+    font-size: 1.3rem
+}
+
+.dealerbtn[b-q3ft3wypij] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 11rem;
+    color: white;
+    font-size: 1.6rem;
+}

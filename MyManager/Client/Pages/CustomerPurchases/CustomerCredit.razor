@@ -1,0 +1,70 @@
+﻿@page "/getcustomercredit"
+@layout CustMainLayout
+@inherits CustomerCreditBase
+
+<div class="container">
+
+    <h1>Customer credit</h1>
+    @*<div class="d-flex justify-content-between align-items-center">
+        <input placeholder="Search" @bind="value" @bind:event="oninput" @onkeyup="@onChange" />
+        <NavLink class="nav-link" href="addcharger">
+            <button type="button" class="chargerbtn"><i class="fa fa-plus"></i>Add Charger</button>
+        </NavLink>
+    </div>*@
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Customer Id</th>
+                    <th >Customer Name</th>
+                    <th scope="col">Purchase Id</th>
+                    <th scope="col">Purchase Date</th>
+                    <th scope="col">Sum Total</th>
+                    <th scope="col">Paid Amount</th>
+                    <th scope="col">Credit Amount</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getCustomerCredit.CustomerCredit.Any())
+                {
+                    foreach (var credit in getCustomerCredit.CustomerCredit)
+                    {
+                    <tr>
+                        <td>@credit.Id</td>
+                        <td>@credit.Customer_Id</td>
+                        <td>@credit.Customer_Name</td>
+                        <NavLink class="nav-link p-0" href="@($"receipt/{credit.Purchase_Id}")">
+                            <td class="purchase_id">@credit.Purchase_Id</td>
+                        </NavLink>                  
+                        <td>@credit.Purchase_Date</td>
+                        <td>@credit.Sum_Total</td>
+                        <td>@credit.Paid_Amount</td>
+                        <td>@credit.Credited_amount</td>
+
+                        <td >                      
+                                <i @onclick="@(e =>{setCreditId(credit.Id);})" class="fas fa-check-circle" data-toggle="modal" data-target="#deletecredit"></i>                     
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getCustomerCredit.Message.Any())
+    {
+        <h1>@getCustomerCredit.Message.FirstOrDefault()</h1>
+    }
+    else if (!getCustomerCredit.Message.Any() && !getCustomerCredit.CustomerCredit.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+<DeleteCustomerCredit onDelete="creditCleared" creditid="@credit_id" />

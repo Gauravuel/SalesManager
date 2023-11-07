@@ -1,0 +1,35 @@
+﻿@page "/adddealer"
+@page "/adddealer/{Id}"
+
+@layout CustMainLayout
+@inherits AddDealerBase
+<div class="container-fluid mt-5">
+
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Dealer</h3>
+        <EditForm Model="@dealerView" OnValidSubmit="handleSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="name">Dealer Name</label>
+                <InputText type="text" class="form-control" @bind-Value="dealerView.Name" id="name" placeholder="Enter dealer name" />
+                <ValidationMessage For="@(()=>dealerView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <InputText type="text" class="form-control" id="address" @bind-Value="dealerView.Adress" placeholder="Address" />
+                <ValidationMessage For="@(()=>dealerView.Adress)" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact</label>
+                <InputText type="text" class="form-control" id="phone" @bind-Value="dealerView.Phone" placeholder="Phone number" />
+                <ValidationMessage For="@(()=>dealerView.Phone)" />
+            </div>
+       
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="dealerbtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

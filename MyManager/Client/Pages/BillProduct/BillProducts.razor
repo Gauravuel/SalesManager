@@ -1,0 +1,109 @@
+﻿@page "/billproducts/{billid}"
+@layout CustMainLayout
+@inherits BillProductBase
+<div class="voucher_main">
+
+    <div class="innerdiv_1">
+        <div class="banner_main">My Manager</div>
+        <div class="address_main">
+            <div class="address_sub1">
+                @if (getBill.Singlebill != null)
+                {
+                    <div>Dealer Name : @getBill.Singlebill.dealerView.Name</div>
+                    <div>Address : @getBill.Singlebill.dealerView.Adress</div>
+                    <div>Contact : @getBill.Singlebill.dealerView.Phone</div>
+                }
+                else
+                {
+                    <div>Dealer Name : N/A</div>
+                    <div>Address : N/A</div>
+                    <div>Contact : N/A</div>
+                }
+
+            </div>
+            <div class="address_sub2">
+                @if (getBill.Singlebill != null)
+                {
+
+                    <div>Date : @getBill.Singlebill.Checkout_Date.ToShortDateString()</div>
+                    <div>Bill No : @getBill.Singlebill.BillNo</div>
+
+                }
+                else
+                {
+                    <div>Date : N/A</div>
+                    <div>Bill No : N/A</div>
+                }
+            </div>
+
+
+        </div>
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+
+                @if (getBillProduct.Headphones.Any())
+                    foreach (var headphone in getBillProduct.Headphones)
+                    {
+                        <tr>
+                            <td>@headphone.Name</td>
+                            <td>@headphone.Quantity</td>
+                            <td>@headphone.Price</td>
+                            <td>@(headphone.Price * headphone.Quantity)</td>
+                        </tr>
+                    }
+                @if (getBillProduct.Smartphones.Any())
+                    foreach (var smartphone in getBillProduct.Smartphones)
+                    {
+                        <tr>
+                            <td>@smartphone.Name</td>
+                            <td>@smartphone.Quantity</td>
+                            <td>@smartphone.Price</td>
+                            <td>@(smartphone.Price * smartphone.Quantity)</td>
+                        </tr>
+                    }
+                @if (getBillProduct.Chargers.Any())
+                    foreach (var charger in getBillProduct.Chargers)
+                    {
+                        <tr>
+                            <td>Charger</td>
+                            <td>@charger.Quantity</td>
+                            <td>@charger.Price</td>
+                            <td>@(charger.Price * charger.Quantity)</td>
+                        </tr>
+                    }
+                @if (getBillProduct.PhoneCases.Any())
+                    foreach (var phonecase in getBillProduct.PhoneCases)
+                    {
+                        <tr>
+                            <td>@phonecase.Name</td>
+                            <td>@phonecase.Quantity</td>
+                            <td>@phonecase.Price</td>
+                            <td>@(phonecase.Price * phonecase.Quantity)</td>
+                        </tr>
+                    }
+                
+                <tr>
+                    <td colspan="3"><strong>Grand Total</strong></td>
+                    <td><strong>@Total.ToString()</strong></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="footer">********** Thank You For Choosing Us. Visit Again **********</div>
+        @*<div>
+                <button class="btn btn-success voucher_print printhide" @onclick="PrintBill">Print</button>
+            </div>*@
+
+    </div>
+
+</div>

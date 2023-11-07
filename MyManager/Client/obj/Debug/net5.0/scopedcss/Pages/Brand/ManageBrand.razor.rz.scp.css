@@ -1,0 +1,31 @@
+.fa-edit[b-bdzd7do7tr] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-bdzd7do7tr] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-bdzd7do7tr] {
+    margin-right: 3px;
+}
+
+th[b-bdzd7do7tr] {
+    font-size: 1.4rem;
+}
+
+td[b-bdzd7do7tr] {
+    font-size: 1.3rem
+}
+.brandbtn[b-bdzd7do7tr] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 12rem;
+    color: white;
+    font-size: 1.6rem;
+}
+

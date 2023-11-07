@@ -1,0 +1,39 @@
+﻿.fa-edit {
+    color: #FF5151;
+    margin-right: .5rem;
+}
+
+.fa-trash-alt {
+    color: red;
+    margin-left: .5rem;
+}
+
+.fa-plus {
+    margin-right: .3rem;
+}
+
+th {
+    font-size: 1.4rem;
+}
+
+td {
+    font-size: 1.3rem
+}
+.order_btns{
+    display:inline-block;
+}
+input {
+   height:3rem;
+   outline:none;
+
+}
+
+.smartphonebtn {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 12rem;
+    color: white;
+    font-size: 1.6rem;
+}

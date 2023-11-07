@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "font-awesome@5.15.4",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+
+    {
+      "library": "font-awesome@6.0.0",
+      "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "Chart.js@3.5.1",
+      "destination": "wwwroot/lib/Chart.js/"
+    }
+  ]
+}

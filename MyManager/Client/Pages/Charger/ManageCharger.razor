@@ -1,0 +1,100 @@
+﻿@page "/managecharger"
+@layout CustMainLayout
+@inherits ManageChargerBase
+
+<div class="container">
+
+    <h1>Available Chargers</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <input placeholder="Search" @bind="value" @bind:event="oninput" @onkeyup="@onChange" />
+        <NavLink class="nav-link" href="addcharger">
+            <button type="button" class="chargerbtn"><i class="fa fa-plus"></i>Add Charger</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Charger Name</th>
+                    <th scope="col">Watt</th>
+                    <th scope="col">Ports</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Fast Charging</th>
+                    <th scope="col">Quantity</th>
+                    <th class="order_btns" scope="col"><div>Price</div><div><i @onclick="priceascending" class="fas fa-sort-up"></i><i @onclick="pricedescending" class="fas fa-sort-down"></i></div></th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getCharger.Chargers.Any() && !searchedcharger.Any())
+                {
+                    foreach (var charger in getCharger.Chargers)
+                    {
+                        <tr>
+                            <td>@charger.Id</td>
+                            <td>@charger.Chargername</td>
+                            <td>@charger.Watt</td>
+                            <td>@charger.Port</td>
+                            <td>@charger.Type</td>
+                            <td>@charger.Fast_Charging</td>
+                            <td>@charger.Quantity</td>
+                            <td>@charger.Price</td>
+
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addcharger/{charger.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e => { setChargerId(charger.Id); })" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletechargermodel"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+                else if (searchedcharger.Any())
+                {
+                    foreach (var charger in searchedcharger)
+                    {
+                        <tr>
+                            <td>@charger.Id</td>
+                            <td>@charger.Chargername</td>
+                            <td>@charger.Watt</td>
+                            <td>@charger.Port</td>
+                            <td>@charger.Type</td>
+                            <td>@charger.Fast_Charging</td>
+                            <td>@charger.Quantity</td>
+                            <td>@charger.Price</td>
+
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addcharger/{charger.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e => { setChargerId(charger.Id); })" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletechargermodel"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getCharger.Message.Any())
+    {
+        <h1>@getCharger.Message.FirstOrDefault()</h1>
+    }
+    else if (!getCharger.Message.Any() && !getCharger.Chargers.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+<DeleteChargerModel onDelete="chargerDeleted" chargerid="@chargerid" />

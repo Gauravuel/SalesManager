@@ -1,0 +1,46 @@
+﻿@page "/addbill"
+@page "/addbill/{billid}"
+
+@layout CustMainLayout
+@inherits AddBillBase
+
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Bill</h3>
+        <EditForm Model="@billView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="name">Checkout Date</label>
+                <InputDate type="date" class="form-control"   @bind-Value="billView.Checkout_Date" id="name" placeholder="Choose checkout date" />
+                <ValidationMessage For="@(()=>billView.Checkout_Date)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="billno">Bill No</label>
+                <InputNumber type="number" class="form-control" id="billno" @bind-Value="billView.BillNo" placeholder="Bill No" />
+                <ValidationMessage For="@(()=>billView.BillNo)" />
+            </div>
+
+            <div class="form-group">
+                <label for="dealer">Dealer</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="dealer" @bind-Value="billView.Dealer_Id">
+                        <option value="">Choose Dealer</option>
+                        @foreach (var dealer in getDealer.Dealer)
+                        {
+                            <option value="@dealer.Id">@dealer.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>billView.Dealer_Id)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="billbtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

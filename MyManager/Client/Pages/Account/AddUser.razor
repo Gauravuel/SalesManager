@@ -1,0 +1,26 @@
+﻿@page "/adduser"
+@inherits AddUserBase
+@layout CustMainLayout
+
+<div class="container-fluid mt-5">
+     <div class="col-8 offset-2">
+        <h3>Add User </h3>
+        <EditForm Model="@register" OnValidSubmit="addNewUser">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="Email">Email address</label>
+                <InputText type="email" class="form-control" id="Email" @bind-Value="register.Email" placeholder="Enter email" />
+                <ValidationMessage For="@(()=>register.Email)" />
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <InputText type="password" class="form-control" id="Password" @bind-Value="register.Password" placeholder="Password" />
+                <ValidationMessage For="@(()=>register.Password)" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="registerbtn">Submit</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+

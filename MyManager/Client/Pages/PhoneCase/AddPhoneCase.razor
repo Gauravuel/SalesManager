@@ -1,0 +1,89 @@
+﻿@page "/addphonecase"
+@page "/addphonecase/{phonecaseid}"
+
+@layout CustMainLayout
+@inherits AddPhoneCaseBase
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Case</h3>
+        <EditForm Model="@phoneCaseView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="bid">Bill Id</label>
+                <InputText type="text" class="form-control" id="bid" @bind-Value="phoneCaseView.Bill_Id" placeholder="Bill Id" />
+                <ValidationMessage For="@(()=>phoneCaseView.Bill_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="name">PhoneCase Name</label>
+                <InputText type="text" class="form-control" @bind-Value="phoneCaseView.Name" id="name" placeholder="Enter Case Name" />
+                <ValidationMessage For="@(()=>phoneCaseView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="compatibility">Compatibility</label>
+                <InputText type="text" class="form-control" id="color" @bind-Value="phoneCaseView.Compatibility" placeholder="Compatibility" />
+                <ValidationMessage For="@(()=>phoneCaseView.Compatibility)" />
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="brand" @bind-Value="phoneCaseView.Brand_Id">
+                        <option value="">Choose Brand</option>
+                        @foreach (var brand in getBrand.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>phoneCaseView.Brand_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="casematerial">Case Material</label>
+                <InputText type="text" class="form-control" id="casematerial" @bind-Value="phoneCaseView.CaseMaterial" placeholder="Case Material" />
+                <ValidationMessage For="@(()=>phoneCaseView.CaseMaterial)" />
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <InputText type="text" class="form-control" id="type" @bind-Value="phoneCaseView.Type" placeholder="Case Type" />
+                <ValidationMessage For="@(()=>phoneCaseView.Type)" />
+            </div>
+            @*<div class="form-group">
+        <label for="transparent">Transparent</label>
+        <InputText type="text" class="form-control" id="transparent" @bind-Value="phoneCaseView.Transparent" placeholder="Transparancy" />
+        <ValidationMessage For="@(()=>phoneCaseView.Transparent)" />
+        </div>*@
+            <div class="form-group">
+                <label for="transparent">Transparent</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="transparent" @bind-Value="phoneCaseView.Transparent">
+                        <option value="">Is transparent?</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>phoneCaseView.Transparent)" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <InputNumber type="number" class="form-control" id="quantity" @bind-Value="phoneCaseView.Quantity" placeholder="Quantity" />
+                <ValidationMessage For="@(()=>phoneCaseView.Quantity)" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <InputNumber type="number" class="form-control" id="price" @bind-Value="phoneCaseView.Price" placeholder="Price" />
+                <ValidationMessage For="@(()=>phoneCaseView.Price)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="casebtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Configuration
+<div class="page">
+
+    <div class="back_drop @DropBackClass" @onclick="dropbacktoggle"></div>
+
+    <div class="sidebar @ToggleClassName @ToggleCompactClassName printhide">
+        <CustSideNav OnToggleCompactClicked="CompactToggler" />
+    </div>
+
+    <div class="top_bar printhide">
+        <CustTopBar open="sidebarstatus" OnToggleClicked="@Toggler" />
+    </div>
+
+    <div class="content">
+        @Body
+    </div>
+
+</div>
+<BlazoredToasts Position="ToastPosition.BottomRight"
+                Timeout="5"
+                IconType="IconType.FontAwesome"
+                SuccessClass="success-toast-override"
+                SuccessIcon="fa fa-check"
+                ErrorIcon="fa fa-times"
+                InfoIcon="fa fa-info"
+                WarningIcon="fa fa-warning">
+
+</BlazoredToasts>
+
+@code{
+
+    public string ToggleClassName { get; set; }
+
+    public string ToggleCompactClassName { get; set; }
+
+    public string DropBackClass => dropbacktogglestatus ? "opendropback" : "closedropback";
+
+    public bool dropbacktogglestatus { get; set; } = false;
+
+    public bool sidebarstatus { get; set; } = false;
+
+
+    //This is for controlling compact and stretch of the sidebar
+
+
+    public void Toggler(string classname)
+    {
+        if (!string.IsNullOrEmpty(classname))
+        {
+            ToggleClassName = classname;
+            dropbacktogglestatus = !dropbacktogglestatus;
+        }
+
+    }
+
+
+
+
+    public void dropbacktoggle()
+    {
+        dropbacktogglestatus = !dropbacktogglestatus;
+        sidebarstatus = sidebarstatus;
+        ToggleClassName = "closesidenav";
+
+    }
+
+    public void CompactToggler(string classname)
+    {
+        if (!string.IsNullOrEmpty(classname))
+        {
+            ToggleCompactClassName = classname;
+
+        }
+
+    }
+}
+

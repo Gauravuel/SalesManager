@@ -1,0 +1,31 @@
+
+.fa-edit[b-u4k64qwswx] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-u4k64qwswx] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-u4k64qwswx] {
+    margin-right: 3px;
+}
+
+th[b-u4k64qwswx]{
+    font-size:1.4rem;
+}
+td[b-u4k64qwswx]{
+    font-size:1.3rem
+}
+.categorybtn[b-u4k64qwswx] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 13rem;
+    color: white;
+    font-size: 1.6rem;
+   
+}

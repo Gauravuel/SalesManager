@@ -1,0 +1,110 @@
+﻿.dashboardmain {
+    background-color: #F6F7FB;
+}
+.uppercolumn{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(25rem,1fr));  
+    gap:1rem;
+}
+
+
+.fa-product-hunt {
+    font-size: 8rem !important;
+}
+.productimg{
+    height:7rem;
+    width:7rem;
+}
+
+.maindiv {
+    height: 20rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:.4rem;
+}
+.number {
+    font-size: 2.9rem;
+    font-weight: 700;
+    text-align:center!important;
+}
+.label {
+    margin: 0px;
+    font-weight: 600;
+    line-height: 1.57143;
+    font-size: 1.4rem;
+    opacity: 0.72;
+    text-align: center !important;
+}
+.headphonelbl {
+    opacity: 1 !important;
+}
+
+
+.chart {
+    display: grid;
+    /*grid-template-columns: 3fr min-content;*/
+    grid-template-areas: 'chart chart dealer' ;
+    margin-top:1rem;
+    grid-gap:1rem;
+
+}
+#myChart { 
+    width: 100%!important;
+}
+
+.chartmain {
+    grid-area: chart;
+    background-color: white;
+    grid-auto-flow: column;
+    border-radius:.4rem;
+}
+.topdealersmain {
+    width: 24.6vw;
+    grid-area: dealer;
+    background-color: red;
+    /*    padding: 1rem;*/
+    background-color: white;
+    border-radius:.4rem;
+}
+.heading1 {
+    font-size: 1.7rem;
+    background-color: lavender;
+    padding: 1rem;
+}
+.custdetails{
+    display:flex;
+    align-items:center
+}
+.customerimg {
+    height: 2.5rem;
+    width:2.5rem;
+}
+.Name{
+    margin-left:0.5rem;
+}
+.customers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    border-bottom: 1px solid grey;
+    padding: 1rem;
+}
+
+@media(max-width:920px) {
+    .topdealersmain {
+        width: 31.5vw;    
+    }
+}
+
+@media(max-width:790px) {
+    .chart {
+        grid-template-areas: 'chart' 'dealer';
+    }
+    .topdealersmain {
+        width: 100%;
+    }
+}

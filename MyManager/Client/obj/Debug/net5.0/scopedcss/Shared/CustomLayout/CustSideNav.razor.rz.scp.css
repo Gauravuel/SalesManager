@@ -1,0 +1,131 @@
+
+.top-row[b-kyhhbfaneq] {
+    height: 5.2rem;
+    background-color: #FF5151;
+    font-size:2rem;
+}
+
+.navbar-brand[b-kyhhbfaneq] {
+    font-size: 1.7rem;
+}
+.nav_items[b-kyhhbfaneq] {
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+.primary_links[b-kyhhbfaneq] {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.primary_links[b-kyhhbfaneq]::-webkit-scrollbar {
+    display: none;
+}
+.logoutbtn:hover[b-kyhhbfaneq]{
+    cursor:pointer;
+}
+
+
+.arrow_right[b-kyhhbfaneq] {
+    transform: rotate(180deg);
+}
+.arrow_left[b-kyhhbfaneq] {
+    transform: rotate(0deg);
+}
+ .compactarrow[b-kyhhbfaneq] {
+    display: flex;
+    justify-content:center;
+}
+
+.global_link[b-kyhhbfaneq] {
+    padding: 0 1rem;
+    border-top: .1rem solid #FF5151;
+}
+.global_link[b-kyhhbfaneq]  a {
+    color: #FF5151;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    text-decoration: none;
+}
+.links[b-kyhhbfaneq] {
+    padding: 0 1rem;
+    display:flex;
+    align-items:center;
+
+}
+.labels[b-kyhhbfaneq] {
+    font-size: 1.7rem;
+    padding-left: 1rem;
+    white-space:nowrap;
+}
+
+.oi[b-kyhhbfaneq] {
+    font-size: 2rem;
+    vertical-align: text-top;
+    top: -2px;
+   
+}
+.fas[b-kyhhbfaneq],.fab[b-kyhhbfaneq] {
+    font-size: 2rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-kyhhbfaneq] {
+    font-size: 1.4rem;
+    padding-bottom: 0.8rem;
+}
+
+.nav-item:first-of-type[b-kyhhbfaneq] {
+    padding-top: 1.6rem;
+}
+
+.nav-item:last-of-type[b-kyhhbfaneq] {
+    padding-bottom: 1.6rem;
+}
+
+.nav-item[b-kyhhbfaneq]  a {
+    color: #FF5151;
+    border-radius: 4px;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;   
+    line-height: 4.8rem;
+    text-decoration:none;
+}
+
+.nav-item[b-kyhhbfaneq]  a.active {
+background-color: #FF5151;
+color: white;
+}
+.
+
+.nav-item[b-kyhhbfaneq]  a:hover {
+background-color: #FF5151;
+color: white;
+}
+@media(max-width:920px) {
+    .nav_items[b-kyhhbfaneq] {
+        height: 92%;
+    }
+    .compactarrow[b-kyhhbfaneq]{
+        display:none;
+    }
+}
+@media(min-width:920px){
+    .top-row[b-kyhhbfaneq]{
+        display:none;
+    }
+    .compact[b-kyhhbfaneq] {
+        display: none
+    }
+
+    .strech[b-kyhhbfaneq] {
+        display: inline;
+    }
+
+}

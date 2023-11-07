@@ -1,0 +1,97 @@
+﻿@page "/receipt"
+
+@page "/receipt/{purchaseid}"
+@layout CustMainLayout
+@inherits CustomerReceiptBase
+<div class="voucher_main">
+    <div class="innerdiv_1">
+        <div class="banner_main">My Manager</div>
+        <div class="address_main">
+            <div class="address_sub1">            
+                <div>Name : My Manager</div>
+                <div>Address : Urlabari -7</div>
+                <div>Contact : 980407658</div>
+            </div>
+
+            <div class="address_sub2">
+                @if (getPurchase.PurchaseProduct.purchaseproduct.Any())
+                {
+                    <div>Date : @getPurchase.PurchaseProduct.Purchase_Date</div>
+                    <div>Bill No : @getPurchase.PurchaseProduct.Id</div>
+                }
+                else
+                {
+                    <div>Date : N/A</div>
+                    <div>Bill No : N/A</div>
+                }
+
+            </div>
+        </div>
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getPurchase.PurchaseProduct.purchaseproduct.Any())
+                {
+                    @foreach (var product in getPurchase.PurchaseProduct.purchaseproduct)
+                    {
+                        <tr>
+                            <td>@product.Product_name</td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Price</td>
+                            <td>@product.TotalPrice</td>
+                        </tr>
+                    }
+
+
+
+                }
+                else
+                {
+                    <tr>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                }
+
+                @if (getPurchase.PurchaseProduct.purchaseproduct.Any())
+                {
+                    <tr>
+                        <td colspan="3"><strong>Grand Total</strong></td>
+
+                        <td><strong>@getPurchase.PurchaseProduct.Sum_Total</strong></td>
+ 
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong>Paid Amount</strong></td>
+                    
+                        <td><strong>@getPurchase.PurchaseProduct.Paid_Amount</strong></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong>Credit</strong></td>
+                   
+                            <td><strong>@(getPurchase.PurchaseProduct.Sum_Total - getPurchase.PurchaseProduct.Paid_Amount)</strong></td>
+                    
+                    </tr>
+                 }
+                </tbody>
+        </table>
+        <div class="footer">********** Thank You For Choosing Us. Visit Again **********</div>
+        <div>
+             <button class="btn btn-success voucher_print printhide" @onclick="PrintBill">Print</button>
+        </div>
+
+    </div>
+
+</div>
+
+

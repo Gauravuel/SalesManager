@@ -1,0 +1,62 @@
+﻿@page "/managecategory"
+@layout CustMainLayout
+@inherits ManageCategoryBase
+
+<div class="container">
+
+    <h1>Available Category</h1>
+    <div class="d-flex justify-content-end">
+        <NavLink class="nav-link" href="addcategory">
+            <button type="button" class="categorybtn"><i class="fa fa-plus"></i>Add Category</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getCategory.Categories.Any())
+                {
+                    foreach (var category in getCategory.Categories)
+                    {
+                        <tr>
+                            <td>@category.Id</td>
+                            <td>@category.Name</td>
+                            <td>@category.Description</td>
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addcategory/{category.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e =>{setCategoryId(category.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletecategorymodel"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getCategory.Message.Any())
+    {
+        <h1>@getCategory.Message.FirstOrDefault()</h1>
+    }
+    else if (!getCategory.Message.Any() && !getCategory.Categories.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+<DeleteCategoryModel onDelete="categoryDeleted" categoryid="@categoryid" />

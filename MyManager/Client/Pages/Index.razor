@@ -1,0 +1,174 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+@inherits IndexBase
+@layout CustMainLayout
+<div class="dashboardmain">
+    <div class="uppercolumn">
+        <div class="bg-danger maindiv">
+            <div class="icon">
+                <img src="/Images/Dashboardicons/boxes.png" class="productimg" />
+                <div class="number">
+                    @productscount
+                </div>
+                <div class="label">
+                    Total Products
+                </div>
+
+            </div>
+        </div>
+        <div class="bg-success maindiv">
+            <div class="icon">
+                <img src="Images/Dashboardicons/smartphone.png" class="productimg" />
+                <div class="number">
+                    @smartphonecount
+                </div>
+                <div class="label">
+                    Smartphones
+                </div>
+
+            </div>
+        </div>
+        <div class="bg-dark maindiv">
+            <div class="icon">
+                <img src="/Images/Dashboardicons/headphones.png" class="productimg" />
+
+                <div class="number">
+                    @headphonecount
+                </div>
+                <div class="label headphonelbl">
+                    Headphones
+                </div>
+
+            </div>
+        </div>
+        <div class="bg-warning maindiv">
+            <div class="icon">
+                <img src="/Images/Dashboardicons/phone-charger.png" class="productimg" />
+                <div class="number">
+                    @chargercount
+                </div>
+                <div class="label">
+                    Chargers
+                </div>
+
+            </div>
+        </div>
+        <div class="bg-warning maindiv">
+            <div class="icon">
+                <img src="/Images/Dashboardicons/phone-case.png" class="productimg" />
+                <div class="number">
+                    @phonecasecount
+                </div>
+                <div class="label">
+                    Phonecases
+                </div>
+
+            </div>
+        </div>
+        <div class="bg-dark maindiv">
+            <div class="icon">
+                <img src="/Images/Dashboardicons/customer.png" class="productimg" />
+                <div class="number">
+                    200
+                </div>
+                <div class="label headphonelbl">
+                    Happy Customers
+                </div>
+
+            </div>
+        </div>
+        @*<div class="chart">
+                <canvas id="myChart"></canvas>
+            </div>*@
+        @*<div class="bg-success">2</div>
+            <div class="bg-dark">3</div>
+            <div class="bg-warning">4</div>
+            <div class="bg-danger">5</div>
+            <div class="bg-success">6</div>
+            <div class="bg-dark">7</div>
+            <div class="bg-warning">8</div>*@
+    </div>
+    <div class="chart">
+
+        <div>
+            <div class="chartmain">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div>
+            <div class="topdealersmain">
+                <div class="heading1">Top Purchase</div>
+                @if (getTopPurchase.Purchases.Any())
+                {
+                    foreach (var purchase in getTopPurchase.Purchases)
+                    {
+                        <div class="customers">
+                            <div class="custdetails">
+                                <div>
+                                    <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                                </div>
+                                <div class="Name">@purchase.Customer_Name</div>
+                            </div>
+                            <div>@purchase.Amount</div>
+                        </div>
+                    }
+                }
+                <div class="customers">
+                    <div class="custdetails">
+                        <div>
+                            <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                        </div>
+                        <div class="Name">Gaurav Dhungana</div>
+                    </div>
+                    <div>25000</div>
+                </div>
+                <div class="customers">
+                    <div class="custdetails">
+                        <div>
+                            <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                        </div>
+                        <div class="Name">Gaurav Dhungana</div>
+                    </div>
+                    <div>25000</div>
+                </div>
+                <div class="customers">
+                    <div class="custdetails">
+                        <div>
+                            <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                        </div>
+                        <div class="Name">Gaurav Dhungana</div>
+                    </div>
+                    <div>25000</div>
+                </div>
+                <div class="customers">
+                    <div class="custdetails">
+                        <div>
+                            <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                        </div>
+                        <div class="Name">Gaurav Dhungana</div>
+                    </div>
+                    <div>25000</div>
+                </div>
+                <div class="customers">
+                    <div class="custdetails">
+                        <div>
+                            <img src="Images/Dashboardicons/support.png" class="customerimg" />
+                        </div>
+                        <div class="Name">Gaurav Dhungana</div>
+                    </div>
+                    <div>25000</div>
+        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<p>Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!</p>
+
+<p>
+    Welcome to your new app.
+</p>*@
+

@@ -1,0 +1,93 @@
+﻿@page "/manageheadphone"
+@layout CustMainLayout
+@inherits ManageHeadphoneBase
+
+<div class="container">
+
+    <h1>Available Headphones</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <input placeholder="Search" @bind="value" @bind:event="oninput" @onkeyup="@onChange" />
+        <NavLink class="nav-link" href="addheadphone">
+            <button type="button" class="headphonebtn"><i class="fa fa-plus"></i>Add Headphone</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Quantity</th>
+                    <th class="order_btns" scope="col"><div>Price</div><div><i @onclick="priceascending" class="fas fa-sort-up"></i><i @onclick="pricedescending" class="fas fa-sort-down"></i></div></th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                    @if (getHeadphone.Headphones.Any() && !searchedheadphone.Any())
+                    {
+                        foreach (var headphone in getHeadphone.Headphones)
+                        {
+                            <tr>
+                                <td>@headphone.Id</td>
+                                <td>@headphone.Name</td>
+                                <td>@headphone.Type</td>
+                                <td>@headphone.Quantity</td>
+                                <td>@headphone.Price</td>
+
+
+                                <td class="d-flex">
+                                    <NavLink class="nav-link" href="@($"addheadphone/{headphone.Id}")">
+                                        <i class="fas fa-edit"></i>
+                                    </NavLink>
+                                    <NavLink class="nav-link">
+                                        <i @onclick="@(e => { setHeadphoneId(headphone.Id); })" class="fas fa-trash-alt" data-toggle="modal" data-target="#deleteheadphonemodel"></i>
+                                    </NavLink>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else if (searchedheadphone.Any())
+                    {
+                        foreach (var headphone in searchedheadphone)
+                        {
+                            <tr>
+                                <td>@headphone.Id</td>
+                                <td>@headphone.Name</td>
+                                <td>@headphone.Type</td>
+                                <td>@headphone.Quantity</td>
+                                <td>@headphone.Price</td>
+
+
+                                <td class="d-flex">
+                                    <NavLink class="nav-link" href="@($"addheadphone/{headphone.Id}")">
+                                        <i class="fas fa-edit"></i>
+                                    </NavLink>
+                                    <NavLink class="nav-link">
+                                        <i @onclick="@(e => { setHeadphoneId(headphone.Id); })" class="fas fa-trash-alt" data-toggle="modal" data-target="#deleteheadphonemodel"></i>
+                                    </NavLink>
+                                </td>
+                            </tr>
+                        
+                        }
+                    }
+                </tbody>
+        </table>
+    </div>
+
+    @if (getHeadphone.Message.Any())
+    {
+        <h1>@getHeadphone.Message.FirstOrDefault()</h1>
+    }
+    else if (!getHeadphone.Message.Any() && !getHeadphone.Headphones.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+<DeleteHeadphoneModel onDelete="headphoneDeleted" headphoneid="@headphoneid" />

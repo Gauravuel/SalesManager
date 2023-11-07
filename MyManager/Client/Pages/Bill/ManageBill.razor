@@ -1,0 +1,70 @@
+﻿
+@page "/managebill"
+@layout CustMainLayout
+@inherits ManageBillBase
+
+<div class="container">
+
+    <h1>Available Bill</h1>
+    <div class="d-flex justify-content-end">
+        <NavLink class="nav-link" href="addbill">
+            <button type="button" class="billbtn"><i class="fa fa-plus"></i>Add Bill</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Bill No</th>
+                    <th scope="col">Dealer</th>
+                    <th scope="col">Checkout Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getBill.Bills.Any())
+                {
+                    foreach (var bill in getBill.Bills)
+                    {
+                        <tr>
+                            <td>@bill.Id</td>
+                            <td>@bill.BillNo</td>
+                            <td>@bill.dealerView.Name</td>
+                            <td>@bill.Checkout_Date.ToShortDateString()</td>
+                           
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addbill/{bill.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e =>{setBillId(bill.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletebillmodel"></i>
+                                </NavLink>
+                                <NavLink class="nav-link" href="@($"billproducts/{bill.Id}")">
+                                    <i class="fas fa-eye"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getBill.Message.Any())
+    {
+        <h1>@getBill.Message.FirstOrDefault()</h1>
+    }
+    else if (!getBill.Message.Any() && !getBill.Bills.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+
+<DeleteBillModel onDelete="billDeleted" billid="@billid" />

@@ -1,0 +1,66 @@
+﻿@page "/managedealer"
+@layout CustMainLayout
+@inherits ManageDealerBase
+
+<div class="container">
+
+    <h1>Available Dealers</h1>
+    <div class="d-flex justify-content-end">
+        <NavLink class="nav-link" href="adddealer">
+            <button type="button" class="dealerbtn"><i class="fa fa-plus"></i>Add Dealer</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getDealer.Dealer.Any())
+                {
+                    foreach (var dealer in getDealer.Dealer)
+                    {
+                        <tr>
+                            <td>@dealer.Id</td>
+                            <td>@dealer.Name</td>
+                            <td>@dealer.Adress</td>
+                            <td>@dealer.Phone</td>
+
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"adddealer/{dealer.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e =>{setDealerId(dealer.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletedealermodel"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getDealer.Message.Any())
+    {
+        <h1>@getDealer.Message.FirstOrDefault()</h1>
+    }
+    else if (!getDealer.Message.Any() && !getDealer.Dealer.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+
+<DeleteDealerModel onDelete="dealerDeleted" dealerid="@dealerid" />

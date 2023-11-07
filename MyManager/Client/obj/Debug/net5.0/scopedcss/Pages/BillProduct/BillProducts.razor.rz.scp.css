@@ -1,0 +1,52 @@
+
+.voucher_main[b-j5me7m6svi] {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  /*  background-color: #c5e8f380;*/
+}
+
+.innerdiv_1[b-j5me7m6svi] {
+    padding: 2rem;
+    width: 70%;
+    /*    background-color: lightblue;*/
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    border: .1rem solid black;
+}
+th[b-j5me7m6svi] {
+    font-size: 1.4rem;
+}
+
+td[b-j5me7m6svi] {
+    font-size: 1.3rem
+}
+.banner_main[b-j5me7m6svi] {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 500;
+}
+
+.address_main[b-j5me7m6svi] {
+    display: flex;
+    margin: 2rem 0;
+    font-size:1.6rem;
+}
+
+.address_sub2[b-j5me7m6svi] {
+    display: flex;
+    margin-left: auto;
+    flex-direction: column;
+}
+
+.footer[b-j5me7m6svi] {
+    margin: 2rem 0;
+    text-align: center;
+    font-size: 1.6rem;
+}

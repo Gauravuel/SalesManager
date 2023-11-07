@@ -1,0 +1,12 @@
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\bin\Debug\net5.0\MyManager.Shared.deps.json
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\bin\Debug\net5.0\MyManager.Shared.dll
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\bin\Debug\net5.0\ref\MyManager.Shared.dll
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\bin\Debug\net5.0\MyManager.Shared.pdb
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.AssemblyInfoInputs.cache
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.AssemblyInfo.cs
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.dll
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\ref\MyManager.Shared.dll
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.pdb
+C:\Users\Toshiba\Desktop\College Final Year\FYP\fyp\MyManager\Shared\obj\Debug\net5.0\MyManager.Shared.csproj.AssemblyReference.cache

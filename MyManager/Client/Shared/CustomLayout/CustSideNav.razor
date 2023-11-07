@@ -1,0 +1,166 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inherits CustSideNavBase
+
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">MyManager</a>
+</div>
+
+<div class="nav_items">
+    <div class="primary_links">
+        <div class="nav-item px-3">
+            <NavLink href="" Match="NavLinkMatch.All">
+                <div class="links">
+                    <span class="oi oi-home" aria-hidden="true"></span>
+                    <span class="labels @CompactClass">Home</span>
+                </div>
+
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managecategory">
+                <div class="links">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>
+                    <span class="labels @CompactClass">Category</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managebrand">
+                <div class="links">
+                    <i class="fab fa-bootstrap"></i>
+                    @*<span class="oi oi-list-rich" aria-hidden="true"></span>*@
+                    <span class="labels @CompactClass">Brand</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managebill">
+                <div class="links">
+                    <span class="oi oi-file" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Billing</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managedealer">
+                <div class="links">
+                    <i class="fas fa-truck"></i>
+                    @*<span class="oi oi-tr" aria-hidden="true"></span>*@
+                    <span class="labels @CompactClass">Dealer</span>
+                </div>
+
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink href="managesmartphone">
+                <div class="links">
+                    <span class="oi oi-phone" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Smartphones</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managecharger" Match="NavLinkMatch.All">
+                <div class="links">
+
+                    <span class="fas fa-charging-station" aria-hidden="true"></span>
+                    <span class="labels @CompactClass">Charger</span>
+                </div>
+
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="manageheadphone">
+                <div class="links">
+                    <span class="fas fa-headphones-alt" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Headphone</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managephonecase">
+                <div class="links">
+                    <span class="oi oi-phone" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">PhoneCases</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="managecustomer" Match="NavLinkMatch.All">
+                <div class="links">
+                    <span class="oi oi-people" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Customers</span>
+                </div>
+
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="getcustomercredit">
+                <div class="links">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Customer Credit</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink href="adduser">
+                <div class="links">
+                    <span class="oi oi-person" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Add User</span>
+                </div>
+            </NavLink>
+        </div>
+
+    </div>
+
+    <div class="global_link">
+        <div class="nav-item">
+            <NavLink href="counter">
+                <div class="links">
+                    <span class="oi oi-question-mark" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass">Help</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="nav-item logoutbtn">
+            <NavLink>
+                <div class="links">
+                    <span class="oi oi-account-logout" aria-hidden="true"></span>
+                    <span class="labels  @CompactClass" @onclick="BeginSignOut">Logout</span>
+                </div>
+            </NavLink>
+        </div>
+        <div class="compactarrow" @onclick="toggleCompact">
+            <i class="fas fa-chevron-left fa-3x p-3 @arrowdirection"></i>
+        </div>
+    </div>
+</div>
+
+@code{
+    
+
+    [Parameter]
+    public EventCallback<string> OnToggleCompactClicked { get; set; }
+
+    public bool compact { get; set; } = false;
+
+    public string CompactClass => compact ? "compact" : "strech";
+
+    public string arrowdirection => compact ? "arrow_right" : "arrow_left";
+
+    public async void toggleCompact()
+    {
+
+        compact = !compact;
+        await OnToggleCompactClicked.InvokeAsync(CompactClass);
+
+    }
+
+   
+
+}
+
+

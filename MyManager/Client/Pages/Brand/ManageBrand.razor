@@ -1,0 +1,64 @@
+﻿@page "/managebrand"
+@layout CustMainLayout
+@inherits ManageBrandBase
+
+<div class="container">
+
+    <h1>Available Brand</h1>
+    <div class="d-flex justify-content-end">
+        <NavLink class="nav-link" href="addbrand">
+            <button type="button" class="brandbtn"><i class="fa fa-plus"></i>Add Brand</button>
+        </NavLink>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (getBrand.Brands.Any())
+                {
+                    foreach (var brand in getBrand.Brands)
+                    {
+                        <tr>
+                            <td>@brand.Id</td>
+                            <td>@brand.Name</td>
+                            <td>@brand.Category_Name</td>
+                            <td>@brand.Description</td>
+
+                            <td class="d-flex">
+                                <NavLink class="nav-link" href="@($"addbrand/{brand.Id}")">
+                                    <i class="fas fa-edit"></i>
+                                </NavLink>
+                                <NavLink class="nav-link">
+                                    <i @onclick="@(e =>{setBrandId(brand.Id);})" class="fas fa-trash-alt" data-toggle="modal" data-target="#deletebrandmodel"></i>
+                                </NavLink>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (getBrand.Message.Any())
+    {
+        <h1>@getBrand.Message.FirstOrDefault()</h1>
+    }
+    else if (!getBrand.Message.Any() && !getBrand.Brands.Any())
+    {
+        <div class="d-flex justify-content-center">
+            <span class="spinner-border"></span>
+            <span class="ml-3">Loading...</span>
+        </div>
+    }
+
+</div>
+<DeleteBrandModel onDelete="brandDeleted" brandid="@brandid" />

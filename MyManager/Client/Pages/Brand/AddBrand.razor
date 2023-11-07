@@ -1,0 +1,45 @@
+﻿@page "/addbrand"
+@page "/addbrand/{brandid}"
+
+@layout CustMainLayout
+@inherits AddBrandBase
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Brand</h3>
+        <EditForm Model="@brandView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="name">Category Name</label>
+                <InputText type="text" class="form-control" @bind-Value="brandView.Name" id="name" placeholder="Enter category" />
+                <ValidationMessage For="@(()=>brandView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <InputText type="text" class="form-control" id="description" @bind-Value="brandView.Description" placeholder="Description" />
+                <ValidationMessage For="@(()=>brandView.Description)" />
+            </div>
+            <div class="form-group">
+                <label for="owners">Category</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="owners" @bind-Value="brandView.Cat_id">
+                        <option value="">Choose Category</option>
+                        @foreach (var category in getCategory.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                            <i class="fa fa-plus" />
+                        </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>brandView.Cat_id)" />
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="brandbtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

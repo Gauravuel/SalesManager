@@ -1,0 +1,110 @@
+.dashboardmain[b-k8781trm7t] {
+    background-color: #F6F7FB;
+}
+.uppercolumn[b-k8781trm7t]{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(25rem,1fr));  
+    gap:1rem;
+}
+
+
+.fa-product-hunt[b-k8781trm7t] {
+    font-size: 8rem !important;
+}
+.productimg[b-k8781trm7t]{
+    height:7rem;
+    width:7rem;
+}
+
+.maindiv[b-k8781trm7t] {
+    height: 20rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:.4rem;
+}
+.number[b-k8781trm7t] {
+    font-size: 2.9rem;
+    font-weight: 700;
+    text-align:center!important;
+}
+.label[b-k8781trm7t] {
+    margin: 0px;
+    font-weight: 600;
+    line-height: 1.57143;
+    font-size: 1.4rem;
+    opacity: 0.72;
+    text-align: center !important;
+}
+.headphonelbl[b-k8781trm7t] {
+    opacity: 1 !important;
+}
+
+
+.chart[b-k8781trm7t] {
+    display: grid;
+    /*grid-template-columns: 3fr min-content;*/
+    grid-template-areas: 'chart chart dealer' ;
+    margin-top:1rem;
+    grid-gap:1rem;
+
+}
+#myChart[b-k8781trm7t] { 
+    width: 100%!important;
+}
+
+.chartmain[b-k8781trm7t] {
+    grid-area: chart;
+    background-color: white;
+    grid-auto-flow: column;
+    border-radius:.4rem;
+}
+.topdealersmain[b-k8781trm7t] {
+    width: 24.6vw;
+    grid-area: dealer;
+    background-color: red;
+    /*    padding: 1rem;*/
+    background-color: white;
+    border-radius:.4rem;
+}
+.heading1[b-k8781trm7t] {
+    font-size: 1.7rem;
+    background-color: lavender;
+    padding: 1rem;
+}
+.custdetails[b-k8781trm7t]{
+    display:flex;
+    align-items:center
+}
+.customerimg[b-k8781trm7t] {
+    height: 2.5rem;
+    width:2.5rem;
+}
+.Name[b-k8781trm7t]{
+    margin-left:0.5rem;
+}
+.customers[b-k8781trm7t] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    border-bottom: 1px solid grey;
+    padding: 1rem;
+}
+
+@media(max-width:920px) {
+    .topdealersmain[b-k8781trm7t] {
+        width: 31.5vw;    
+    }
+}
+
+@media(max-width:790px) {
+    .chart[b-k8781trm7t] {
+        grid-template-areas: 'chart' 'dealer';
+    }
+    .topdealersmain[b-k8781trm7t] {
+        width: 100%;
+    }
+}

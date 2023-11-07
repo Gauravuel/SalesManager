@@ -1,0 +1,84 @@
+﻿@page "/addcharger"
+@page "/addcharger/{chargerid}"
+
+@layout CustMainLayout
+@inherits AddChargerBase
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Charger</h3>
+        <EditForm Model="@chargerView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="bid">Bill Id</label>
+                <InputText type="text" class="form-control" id="bid" @bind-Value="chargerView.Bill_Id" placeholder="Bill Id" />
+                <ValidationMessage For="@(()=>chargerView.Bill_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="name">ChargerName</label>
+                <InputText type="text" class="form-control" @bind-Value="chargerView.Chargername" id="name" placeholder="Charger Name" />
+                <ValidationMessage For="@(()=>chargerView.Chargername)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="watt">Watt</label>
+                <InputNumber type="number" class="form-control" @bind-Value="chargerView.Watt" id="watt" placeholder="Watt" />
+                <ValidationMessage For="@(()=>chargerView.Watt)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="ports">Ports</label>
+                <InputNumber type="number" class="form-control" @bind-Value="chargerView.Port" id="ports" placeholder="Number of ports" />
+                <ValidationMessage For="@(()=>chargerView.Port)" class="validationmessage" />
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="brand" @bind-Value="chargerView.Brand_Id">
+                        <option value="">Choose Brand</option>
+                        @foreach (var brand in getBrand.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>chargerView.Brand_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="type">Port Type</label>
+                <InputText type="text" class="form-control" id="type" @bind-Value="chargerView.Type" placeholder="Type" />
+                <ValidationMessage For="@(()=>chargerView.Type)" />
+            </div>
+            <div class="form-group">
+                <label for="fastcharging">Fast Charging</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="fastcharging" @bind-Value="chargerView.Fast_Charging">
+                        <option value="">Is Fast Charging?</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>chargerView.Fast_Charging)" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <InputNumber type="number" class="form-control" id="quantity" @bind-Value="chargerView.Quantity" placeholder="Quantity" />
+                <ValidationMessage For="@(()=>chargerView.Quantity)" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <InputNumber type="number" class="form-control" id="price" @bind-Value="chargerView.Price" placeholder="Price" />
+                <ValidationMessage For="@(()=>chargerView.Price)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="chargerbtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>S

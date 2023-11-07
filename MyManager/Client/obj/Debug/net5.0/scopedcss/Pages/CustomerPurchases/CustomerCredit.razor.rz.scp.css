@@ -1,0 +1,29 @@
+.fa-check-circle[b-bmtegs9dfv] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-file-invoice[b-bmtegs9dfv] {
+    color: red;
+    margin-left: 5px;
+}
+
+
+
+th[b-bmtegs9dfv] {
+    font-size: 1.4rem;
+}
+
+td[b-bmtegs9dfv] {
+    font-size: 1.3rem
+}
+
+/*.customerbtn {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 11.5rem;
+    color: white;
+    font-size: 1.6rem;
+}*/

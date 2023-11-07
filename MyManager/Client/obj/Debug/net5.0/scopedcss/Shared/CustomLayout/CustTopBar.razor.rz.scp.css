@@ -1,0 +1,32 @@
+.leftmost_div[b-ll4eyc3wn9] {
+    display:flex;
+    align-items:center;
+}
+.menu_bar[b-ll4eyc3wn9]{
+    display:none;
+    margin-right:10px;
+    font-size:1.8rem;
+}
+
+.banner[b-ll4eyc3wn9] {
+    font-size: 2rem;
+    color: #FF5151;
+    font-weight: bold;
+}
+.username[b-ll4eyc3wn9] {
+    display:flex;
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: #FF5151;
+    font-weight:600;
+}
+.dropdown-item[b-ll4eyc3wn9]{
+    font-size:1.6rem !important;
+}
+@media(max-width:920px) {
+    .menu_bar[b-ll4eyc3wn9]{
+        display:block;
+    }
+
+}
+

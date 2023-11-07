@@ -1,0 +1,23 @@
+﻿@page "/purchaselist"
+@page "/purchaselist/{custid}"
+@layout CustMainLayout
+@inherits CustomerPurchaseBase
+<div class="maindiv">
+    <div class="heading_1">Customer purchase collection</div>
+    <div class="purchse_list">
+       
+        @foreach (var purchase in getPurchase.Purchases)
+        {
+            <NavLink class="nav-link p-0 purchase_link" href="@($"receipt/{purchase.Purchase_Id}")">
+                <div class="purchase">
+                    <div>@purchase.Purchase_Id</div>
+                    <div>@purchase.Purchase_Date </div>
+                </div>
+            </NavLink>
+            @*<div class="purchase">
+                <div>@purchase.Purchase_Id</div>
+                <div>@purchase.Purchase_Date </div>
+            </div>*@
+        }
+    </div>
+</div>

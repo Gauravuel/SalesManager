@@ -1,0 +1,35 @@
+﻿@page "/addcustomer"
+@page "/addcustomer/{Id}"
+
+@layout CustMainLayout
+@inherits AddCustomerBase
+<div class="container-fluid mt-5">
+
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Customer</h3>
+        <EditForm Model="@customerView" OnValidSubmit="handleSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="name">Customer Name</label>
+                <InputText type="text" class="form-control" @bind-Value="customerView.Name" id="name" placeholder="Enter customer name" />
+                <ValidationMessage For="@(()=>customerView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <InputText type="text" class="form-control" id="address" @bind-Value="customerView.Address" placeholder="Address" />
+                <ValidationMessage For="@(()=>customerView.Address)" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Contact</label>
+                <InputText type="text" class="form-control" id="phone" @bind-Value="customerView.Phone" placeholder="Phone number" />
+                <ValidationMessage For="@(()=>customerView.Phone)" />
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="customerbtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

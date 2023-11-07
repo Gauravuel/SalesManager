@@ -1,0 +1,53 @@
+﻿.image_div {
+    margin: 0 auto;
+    width: 40%;
+}
+
+.image {
+    width: 100%;
+}
+.error_title {
+    text-align: center;
+}
+.error_code {
+    font-size: 15rem;
+    font-weight: 400;
+    color: gray;
+    line-height: 1;
+}
+.error_type {
+    font-size: 3.2rem;
+}
+
+.info {
+    font-size: 1.6rem;
+}
+
+@media(max-width:900px) {
+    .error_code {
+        font-size: 12rem;
+        font-weight: 300;
+    }
+}
+
+@media(max-width:700px) {
+    .error_code {
+        font-size: 10rem;
+        font-weight: 300;
+    }
+
+    .image_div {
+        width: 70%;
+    }
+}
+
+@media(max-width:450px) {
+    .error_code {
+        font-size: 8remx;
+        font-weight: 200;
+    }
+
+    .image_div {
+        width: 80%;
+    }
+}

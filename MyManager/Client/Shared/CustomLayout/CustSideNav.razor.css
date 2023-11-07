@@ -1,0 +1,131 @@
+﻿
+.top-row {
+    height: 5.2rem;
+    background-color: #FF5151;
+    font-size:2rem;
+}
+
+.navbar-brand {
+    font-size: 1.7rem;
+}
+.nav_items {
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+.primary_links {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.primary_links::-webkit-scrollbar {
+    display: none;
+}
+.logoutbtn:hover{
+    cursor:pointer;
+}
+
+
+.arrow_right {
+    transform: rotate(180deg);
+}
+.arrow_left {
+    transform: rotate(0deg);
+}
+ .compactarrow {
+    display: flex;
+    justify-content:center;
+}
+
+.global_link {
+    padding: 0 1rem;
+    border-top: .1rem solid #FF5151;
+}
+.global_link ::deep a {
+    color: #FF5151;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    text-decoration: none;
+}
+.links {
+    padding: 0 1rem;
+    display:flex;
+    align-items:center;
+
+}
+.labels {
+    font-size: 1.7rem;
+    padding-left: 1rem;
+    white-space:nowrap;
+}
+
+.oi {
+    font-size: 2rem;
+    vertical-align: text-top;
+    top: -2px;
+   
+}
+.fas,.fab {
+    font-size: 2rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item {
+    font-size: 1.4rem;
+    padding-bottom: 0.8rem;
+}
+
+.nav-item:first-of-type {
+    padding-top: 1.6rem;
+}
+
+.nav-item:last-of-type {
+    padding-bottom: 1.6rem;
+}
+
+.nav-item ::deep a {
+    color: #FF5151;
+    border-radius: 4px;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;   
+    line-height: 4.8rem;
+    text-decoration:none;
+}
+
+.nav-item ::deep a.active {
+background-color: #FF5151;
+color: white;
+}
+.
+
+.nav-item ::deep a:hover {
+background-color: #FF5151;
+color: white;
+}
+@media(max-width:920px) {
+    .nav_items {
+        height: 92%;
+    }
+    .compactarrow{
+        display:none;
+    }
+}
+@media(min-width:920px){
+    .top-row{
+        display:none;
+    }
+    .compact {
+        display: none
+    }
+
+    .strech {
+        display: inline;
+    }
+
+}

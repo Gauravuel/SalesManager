@@ -1,0 +1,60 @@
+﻿@page "/addheadphone"
+@page "/addheadphone/{headphoneid}"
+
+@layout CustMainLayout
+@inherits AddHeadphoneBase
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Brand</h3>
+        <EditForm Model="@headphoneView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="bid">Bill Id</label>
+                <InputText type="text" class="form-control" id="bid" @bind-Value="headphoneView.Bill_Id" placeholder="Bill Id" />
+                <ValidationMessage For="@(()=>headphoneView.Bill_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="name">Headphone Name</label>
+                <InputText type="text" class="form-control" @bind-Value="headphoneView.Name" id="name" placeholder="Enter Smartphone Name" />
+                <ValidationMessage For="@(()=>headphoneView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <InputText type="text" class="form-control" id="type" @bind-Value="headphoneView.Type" placeholder="Type" />
+                <ValidationMessage For="@(()=>headphoneView.Type)" />
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="brand" @bind-Value="headphoneView.Brand_Id">
+                        <option value="">Choose Brand</option>
+                        @foreach (var brand in getBrand.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>headphoneView.Brand_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <InputNumber type="number" class="form-control" id="quantity" @bind-Value="headphoneView.Quantity" placeholder="Quantity" />
+                <ValidationMessage For="@(()=>headphoneView.Quantity)" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <InputNumber type="number" class="form-control" id="price" @bind-Value="headphoneView.Price" placeholder="Price" />
+                <ValidationMessage For="@(()=>headphoneView.Price)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="headphonebtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

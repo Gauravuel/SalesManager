@@ -1,0 +1,31 @@
+.fa-edit[b-e9lnivjsss] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-e9lnivjsss] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-e9lnivjsss] {
+    margin-right: 3px;
+}
+
+th[b-e9lnivjsss] {
+    font-size: 1.4rem;
+}
+
+td[b-e9lnivjsss] {
+    font-size: 1.3rem
+}
+
+.headphonebtn[b-e9lnivjsss] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 13rem;
+    color: white;
+    font-size: 1.6rem;
+}

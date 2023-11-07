@@ -1,0 +1,104 @@
+﻿@page "/addpurchase/{custid}"
+@inherits AddPurchaseBase
+
+<div class="wrapper">
+    <div class="purchase_form">
+        <div class="cart_banner1">
+            <h3>Add Purchase</h3>
+        </div>
+        <div class="container">
+            <div class="col-8 offset-2 h-100">
+                @*<h3 class="label">@DynamicLabel Dealer</h3>*@
+                <EditForm Model="@PurchaseView" OnValidSubmit="addtopurchaselist">
+                    <DataAnnotationsValidator />
+                    <div class="form-group">
+                        <label for="owners">Product</label>
+                        <div class="d-flex">
+                            <InputSelect class="form-control" id="owners" @bind-Value="PurchaseView.Product_Id" @oninput="productChoosen" >
+                                <option value="">Choose Product</option>
+                                <option class="font-weight-bold" disabled>Smartphones</option>
+                                @foreach (var smartphone in getSmartphones.Smartphones)
+                                {
+                                    <option value="@smartphone.Id">@smartphone.Name - @smartphone.Ram/@smartphone.Storage GB - @smartphone.Price</option>
+                                }
+                                <option class="font-weight-bold" disabled>Chargers</option>
+                                @foreach (var chager in getCharger.Chargers)
+                                {
+                                    <option value="@chager.Id">@chager.Watt watt- @chager.Port port - Type @chager.Type - @chager.Price</option>
+                                }
+                                <option class="font-weight-bold" disabled>Headphones</option>
+                                @foreach (var headphone in getHeadphone.Headphones)
+                                {
+                                    <option value="@headphone.Id">@headphone.Name - @headphone.Type - @headphone.Price</option>
+                                }
+                                <option class="font-weight-bold" disabled>PhoneCase</option>
+                                @foreach (var pcase in getPhoneCase.PhoneCases)
+                                {
+                                    <option value="@pcase.Id">@pcase.Name - @pcase.Compatibility - @pcase.Price</option>
+                                }
+                            </InputSelect>
+                            @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                        </div>
+                        <ValidationMessage For="@(()=>PurchaseView.Product_Id)" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <InputNumber type="number" class="form-control" id="quantity" min="1" @bind-Value="PurchaseView.Quantity" @oninput="quantityChanged" placeholder="Quantity" />
+                        <ValidationMessage For="@(()=>PurchaseView.Quantity)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <InputNumber type="number" class="form-control" id="price" @bind-Value="PurchaseView.Price" @oninput="priceChanged" placeholder="Price" />
+                        <ValidationMessage For="@(()=>PurchaseView.Price)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total Price</label>
+                        <InputNumber type="number" class="form-control" id="total" @bind-Value="PurchaseView.TotalPrice" placeholder="Total Price" />
+                        <ValidationMessage For="@(()=>PurchaseView.TotalPrice)" />
+                    </div>
+
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="addtopurchasebtn">Add</button>
+                    </div>
+                </EditForm>
+
+            </div>
+        </div>
+    </div>
+ 
+
+    <div class="checkout">
+        <div class="checkout_lbl1 ">Purchase List</div>
+        <div class="purchase_products">
+            @if (PurchaseView.purchaseproduct.Any())
+            {
+                foreach (var prod in PurchaseView.purchaseproduct)
+                {
+                    <div class="product">
+                        <div class="product_name">@prod.Product_name</div>
+                        <div><i class="fas fa-trash-alt" @onclick="() => deletefromlist(prod.Product_Id)"></i></div>
+                    </div>
+                }
+            }
+        </div>
+       
+        <div class="d-flex flex-column justify-content-center mt-auto ml-2 mr-2" >
+            <div class="sumtotal_lbl">Sum Total : @PurchaseView.Sum_Total</div>
+            <EditForm Model="@PurchaseView" OnValidSubmit="sendforcheckout">
+                <div class="form-group mt-3">
+                    <label for="paidamount">Paid Amount</label>
+                    <InputNumber type="number" class="form-control" id="paidamount" min="1" @bind-Value="PurchaseView.Paid_Amount" placeholder="Paid amount" />
+                    <ValidationMessage For="@(()=>PurchaseView.Paid_Amount)" />
+                </div>
+                <button type="submit" class="addtopurchasebtn mt-3">Checkout</button>
+            </EditForm>
+           
+        </div>
+    </div>
+    
+
+</div>

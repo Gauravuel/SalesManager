@@ -1,0 +1,35 @@
+.fa-edit[b-jvggqg3cwc] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-jvggqg3cwc] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-jvggqg3cwc] {
+    margin-right: 3px;
+}
+
+th[b-jvggqg3cwc] {
+    font-size: 1.4rem;
+}
+
+td[b-jvggqg3cwc] {
+    font-size: 1.3rem
+}
+input[b-jvggqg3cwc] {
+    height: 3rem;
+    outline: none;
+}
+
+.casebtn[b-jvggqg3cwc] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 12rem;
+    color: white;
+    font-size: 1.6rem;
+}

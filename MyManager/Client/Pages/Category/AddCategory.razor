@@ -1,0 +1,29 @@
+﻿@page "/addcategory"
+@page "/addcategory/{Id}"
+
+@layout CustMainLayout
+@inherits AddCategoryBase
+<div class="container-fluid mt-5">
+
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Category</h3>
+        <EditForm Model="@categoryView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="name">Category Name</label>
+                <InputText type="text" class="form-control" @bind-Value="categoryView.Name" id="name" placeholder="Enter category" />
+                <ValidationMessage For="@(()=>categoryView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <InputTextArea type="text" class="form-control" id="description" @bind-Value="categoryView.Description" placeholder="Description" />
+                <ValidationMessage For="@(()=>categoryView.Description)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="categorybtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

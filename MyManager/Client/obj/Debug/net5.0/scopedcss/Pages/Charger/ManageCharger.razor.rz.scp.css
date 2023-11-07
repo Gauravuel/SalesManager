@@ -1,0 +1,31 @@
+.fa-edit[b-k5gsq6ug9j] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-trash-alt[b-k5gsq6ug9j] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-k5gsq6ug9j] {
+    margin-right: 3px;
+}
+
+th[b-k5gsq6ug9j] {
+    font-size: 1.4rem;
+}
+
+td[b-k5gsq6ug9j] {
+    font-size: 1.3rem
+}
+
+.chargerbtn[b-k5gsq6ug9j] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 12rem;
+    color: white;
+    font-size: 1.6rem;
+}

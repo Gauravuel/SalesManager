@@ -1,0 +1,32 @@
+
+.fa-edit[b-8kkagfvvq2], .fa-shopping-cart[b-8kkagfvvq2], .fa-trash-alt[b-8kkagfvvq2] {
+    color: #FF5151;
+    margin-right: 5px;
+}
+
+.fa-file-invoice[b-8kkagfvvq2] {
+    color: red;
+    margin-left: 5px;
+}
+
+.fa-plus[b-8kkagfvvq2] {
+    margin-right: 3px;
+}
+
+th[b-8kkagfvvq2] {
+    font-size: 1.4rem;
+}
+
+td[b-8kkagfvvq2] {
+    font-size: 1.3rem
+}
+
+.customerbtn[b-8kkagfvvq2] {
+    background-color: #FF5151;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    width: 11.5rem;
+    color: white;
+    font-size: 1.6rem;
+}

@@ -1,0 +1,80 @@
+﻿@page "/addsmartphone"
+@page "/addsmartphone/{smartphoneid}"
+
+@layout CustMainLayout
+@inherits AddSmartphoneBase
+<div class="container-fluid mt-5">
+    <div class="col-8 offset-2 h-100">
+        <h3 class="label">@DynamicLabel Smartphone</h3>
+        <EditForm Model="@smartphoneView" OnValidSubmit="handleSubmt">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label for="bid">Bill Id</label>
+                <InputText type="text" class="form-control" id="bid" @bind-Value="smartphoneView.Bill_Id" placeholder="Bill Id" />
+                <ValidationMessage For="@(()=>smartphoneView.Bill_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="name">Smartphone Name</label>
+                <InputText type="text" class="form-control" @bind-Value="smartphoneView.Name" id="name" placeholder="Enter Smartphone Name" />
+                <ValidationMessage For="@(()=>smartphoneView.Name)" class="validationmessage" />
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <InputText type="text" class="form-control" id="color" @bind-Value="smartphoneView.Color" placeholder="Color" />
+                <ValidationMessage For="@(()=>smartphoneView.Color)" />
+            </div>
+
+            <div class="form-group">
+                <label for="brand">Brand</label>
+                <div class="d-flex">
+                    <InputSelect class="form-control" id="brand" @bind-Value="smartphoneView.Brand_Id">
+                        <option value="">Choose Brand</option>
+                        @foreach (var brand in getBrand.Brands)
+                        {
+                            <option value="@brand.Id">@brand.Name</option>
+                        }
+                    </InputSelect>
+                    @*<NavLink class="nav-link" href="addowner">
+                    <i class="fa fa-plus" />
+                </NavLink>*@
+                </div>
+                <ValidationMessage For="@(()=>smartphoneView.Brand_Id)" />
+            </div>
+            <div class="form-group">
+                <label for="ram">Ram</label>
+                <InputNumber type="number" class="form-control" id="ram" @bind-Value="smartphoneView.Ram" placeholder="Ram" />
+                <ValidationMessage For="@(()=>smartphoneView.Ram)" />
+            </div>
+            <div class="form-group">
+                <label for="storage">Storage</label>
+                <InputNumber type="number" class="form-control" id="storage" @bind-Value="smartphoneView.Storage" placeholder="Storage" />
+                <ValidationMessage For="@(()=>smartphoneView.Storage)" />
+            </div>
+            <div class="form-group">
+                <label for="cpu">Cpu</label>
+                <InputText type="text" class="form-control" id="cpu" @bind-Value="smartphoneView.Cpu" placeholder="Cpu" />
+                <ValidationMessage For="@(()=>smartphoneView.Cpu)" />
+            </div>
+            <div class="form-group">
+                <label for="display">Display</label>
+                <InputText type="text" class="form-control" id="display" @bind-Value="smartphoneView.Display" placeholder="Display" />
+                <ValidationMessage For="@(()=>smartphoneView.Display)" />
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <InputNumber type="number" class="form-control" id="quantity" @bind-Value="smartphoneView.Quantity" placeholder="Quantity" />
+                <ValidationMessage For="@(()=>smartphoneView.Quantity)" />
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <InputNumber type="number" class="form-control" id="price" @bind-Value="smartphoneView.Price" placeholder="Price" />
+                <ValidationMessage For="@(()=>smartphoneView.Price)" />
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="smartphonebtn">@DynamicLabel</button>
+            </div>
+        </EditForm>
+
+    </div>
+</div>

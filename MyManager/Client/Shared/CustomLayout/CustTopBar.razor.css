@@ -1,0 +1,32 @@
+﻿.leftmost_div {
+    display:flex;
+    align-items:center;
+}
+.menu_bar{
+    display:none;
+    margin-right:10px;
+    font-size:1.8rem;
+}
+
+.banner {
+    font-size: 2rem;
+    color: #FF5151;
+    font-weight: bold;
+}
+.username {
+    display:flex;
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: #FF5151;
+    font-weight:600;
+}
+.dropdown-item{
+    font-size:1.6rem !important;
+}
+@media(max-width:920px) {
+    .menu_bar{
+        display:block;
+    }
+
+}
+
